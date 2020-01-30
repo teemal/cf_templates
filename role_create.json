@@ -1,0 +1,55 @@
+{
+  "Resources": {
+    "ContractorPolicy": {
+    "Type" : "AWS::IAM::ManagedPolicy",
+    "Properties" : {
+        "Description" : "Contractors policy for cloud dev assignnment",
+        "ManagedPolicyName" : "aws-iam-contractor-policy",
+        "PolicyDocument" : {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "CloudDevIamContractor",
+              "Effect": "Allow",
+              "Action": [
+                  "iam:ListUsers",
+                  "iam:ListGroups",
+                  "iam:ListRoles",
+                  "iam:ListPolicies",        
+                  "cloudformation:ListStacks", 
+                  "cloudformation:GetTemplate"
+                ],
+              "Resource": "*"
+            } 
+          ]
+        }
+      }
+    },
+
+    "ContractorRole" : {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+        "AssumeRolePolicyDocument" : {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "arn:aws:iam::204087959985:root",
+                  "arn:aws:iam::921245065062:user/cloud-boi"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "ManagedPolicyArns": [ {"Ref" : "ContractorPolicy"} ],
+        "Description" : "Contractor role",
+        "RoleName" : "contractors"
+      }
+    } 
+  }
+}

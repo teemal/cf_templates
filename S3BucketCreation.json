@@ -1,0 +1,21 @@
+{
+  "Resources": {
+    "THICCBucket": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "AccessControl": "BucketOwnerFullControl",
+        "BucketName": "thicc-bucket",
+        "Tags": [
+          {
+            "Key": "some_key",
+            "Value": "some_value"
+          }
+        ],
+        "VersioningConfiguration": {
+          "Status": "Suspended"
+        }
+      }
+    }
+  }
+}
