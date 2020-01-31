@@ -3,7 +3,7 @@
     "User": {
       "Type": "AWS::IAM::User",
       "Properties": {
-        "UserName": "cloud-boi",
+        "UserName": "dumb-boi",
         "LoginProfile": {
           "Password": "butt1234",
           "PasswordResetRequired": false
@@ -19,29 +19,19 @@
         }
       }
     },
-    "ContractorPolicy": {
+    "DumbPolicy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
-        "Description": "Contractors policy for cloud dev assignnment",
-        "ManagedPolicyName": "aws-iam-contractor-policy",
+        "Description": "user policy for almost no credentials",
+        "ManagedPolicyName": "aws-iam-dumb-policy",
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
             {
-              "Sid": "CloudDevIamContractor",
+              "Sid": "CloudDevIAMDumb",
               "Effect": "Allow",
               "Action": [
-                "iam:ListUsers",
-                "iam:ListGroups",
-                "iam:ListRoles",
-                "iam:ListPolicies",
-                "iam:ListVirtualMFADevices",
-                "cloudformation:ListStacks",
-                "cloudformation:ListStackResources",
-                "cloudformation:GetTemplate",
-                "s3:ListBucket",
-                "s3:GetBucketLocation",
-                "s3:ListAllMyBuckets"
+                "iam:ListUsers"
               ],
               "Resource": "*"
             }
@@ -49,7 +39,7 @@
         }
       }
     },
-    "ContractorRole": {
+    "DumbRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -59,8 +49,7 @@
               "Effect": "Allow",
               "Principal": {
                 "AWS": [
-                  "arn:aws:iam::204087959985:root",
-                  "arn:aws:iam::921245065062:user/cloud-boi"
+                  "arn:aws:iam::921245065062:user/dumb-boi"
                 ]
               },
               "Action": [
@@ -71,19 +60,18 @@
         },
         "ManagedPolicyArns": [
           {
-            "Ref": "ContractorPolicy"
+            "Ref": "DumbPolicy"
           }
         ],
-        "Description": "Contractor role",
-        "RoleName": "contractors"
+        "Description": "Dumb role",
+        "RoleName": "dumb"
       }
     },
-    "ContractorsGroup": {
+    "DumbGroup": {
       "Type": "AWS::IAM::Group",
       "Properties": {
-        "GroupName": "Contractors-group",
+        "GroupName": "Dumb-group",
         "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/IAMAccessAdvisorReadOnly",
           "arn:aws:iam::aws:policy/AWSCloudFormationReadOnlyAccess"
         ]
       }

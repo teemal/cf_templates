@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ "$1" = "h" ]; then
     printf 'profile <cf, iam, s3, ddb> action [params]\n'
 fi
@@ -46,11 +47,5 @@ if [ "$2" = "cf" ]; then
     if [ "$3" = "t" ]; then
         printf "checking $1 template\n"
         aws --profile $1 cloudformation get-template --stack-name $4
-    fi
-fi
-if [ "$2" = "s3" ]; then
-    if [ "$3" = "ls" ]; then
-        printf "listing s3 buckets\n"
-        aws --profile "$1" s3 ls --recursive
     fi
 fi
