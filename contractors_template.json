@@ -46,7 +46,8 @@
               "Sid": "S3ListBucketsPolicy",
               "Effect": "Allow",
               "Action": [
-                "s3:ListAllMyBuckets"
+                "s3:ListAllMyBuckets",
+                "s3:ListObjectsV2"
               ],
               "Resource": "arn:aws:s3:::*"
             },

@@ -6,7 +6,7 @@
       "DeletionPolicy": "Retain",
       "UpdateReplacePolicy": "Retain",
       "Properties": {
-        "AccessControl": "Private"
+        "AccessControl": "PublicRead"
       }
     },
     "User": {
@@ -43,6 +43,17 @@
                 "s3:*"
               ],
               "Resource": "*"
+            },
+            {
+              "Sid": "AllowBucketRead",
+              "Effect": "Allow",
+              "Action": [
+                "s3:*"
+              ],
+              "Resource": [
+              "arn:aws:s3:::thicc-boi-thiccbucket-1lqm0m2iu7gji",
+              "arn:aws:s3:::thicc-boi-thiccbucket-1lqm0m2iu7gji/*"
+              ]
             }
           ]
         }
@@ -58,7 +69,8 @@
               "Effect": "Allow",
               "Principal": {
                 "AWS": [
-                  "arn:aws:iam::921245065062:user/supreme-s3"
+                  "arn:aws:iam::921245065062:user/supreme-s3",
+                  "arn:aws:iam::921245065062:user/dumb-boi"
                 ]
               },
               "Action": [
