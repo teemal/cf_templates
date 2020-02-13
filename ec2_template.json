@@ -24,8 +24,8 @@
                 "Monitoring": true,
                 "Tags": [
                     {
-                        "Key": "-",
-                        "Value": "-"
+                        "Key": "someKey",
+                        "Value": "someValue"
                     }
                 ],
                 "UserData": {
@@ -34,7 +34,10 @@
                             "",
                             [
                                 "#!/bin/bash -ex",
-                                "-"
+                                "sudo yum update -y",
+                                "sudo yum install -y awslogs",
+                                "sudo systemctl start awslogsd",
+                                "yum install -y nodejs12"
                             ]
                         ]
                     }
