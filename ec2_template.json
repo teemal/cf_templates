@@ -37,7 +37,7 @@
                                 "sudo yum update -y",
                                 "sudo yum install -y awslogs",
                                 "sudo systemctl start awslogsd",
-                                "yum install -y nodejs12"
+                                "yum install -y nodejs10"
                             ]
                         ]
                     }
