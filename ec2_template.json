@@ -37,21 +37,16 @@
                             ]
                         ]
                     }
-                },
-                "CloudSecurityGroup": {
-                    "Type": "AWS::EC2::SecurityGroup",
-                    "Properties": {
-                        "GroupDescription": "security group for assignment",
-                        "SecurityGroupIngress": [
-                            "- IpProtocol: '-1'",
-                            "CidrIp: '0.0.0.0/0'"
-                        ],
-                        "VpcId": "!Ref VPC",
-                        "SecurityGroupEgress": [
-                            "- IpProtocol: '-1'",
-                            "CidrIp: '0.0.0.0/0'"
-                        ]
-                    }
+                }
+            }
+        },
+        "CloudSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "security group for assignment",
+                "SecurityGroupIngress": {
+                    "IpProtocol" : "-1",
+                    "CidrIp" : "0.0.0.0/0"
                 }
             }
         }
