@@ -1,18 +1,10 @@
 {
-"AWSTemplateFormatVersion": "2010-09-09",
+    "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "EC2 instance for cloud dev w2020",
-    "Metadata": {
-
-    },
-    "Parameters": {
-    
-    },
-    "Mappings": {
-
-    },
-    "Conditions": {
-
-    },
+    "Metadata": {},
+    "Parameters": {},
+    "Mappings": {},
+    "Conditions": {},
     "Resources": {
         "CloudDevEC2": {
             "Type": "AWS::EC2::Instance",
@@ -45,11 +37,24 @@
                             ]
                         ]
                     }
+                },
+                "CloudSecurityGroup": {
+                    "Type": "AWS::EC2::SecurityGroup",
+                    "Properties": {
+                        "GroupDescription": "security group for assignment",
+                        "SecurityGroupIngress": [
+                            "- IpProtocol: '-1'",
+                            "CidrIp: '0.0.0.0/0'"
+                        ],
+                        "VpcId": "!Ref VPC",
+                        "SecurityGroupEgress": [
+                            "- IpProtocol: '-1'",
+                            "CidrIp: '0.0.0.0/0'"
+                        ]
+                    }
                 }
+            }
         }
-                }
     },
-    "Outputs": {
-
-    }
+    "Outputs": {}
 }
