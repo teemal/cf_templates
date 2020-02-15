@@ -27,9 +27,10 @@
                             [
                                 "#!/bin/bash -ex",
                                 "sudo yum update -y",
+                                "sudo yum install -y git",
                                 "sudo yum install -y awslogs",
                                 "sudo systemctl start awslogsd",
-                                "yum install -y nodejs10",
+                                "sudo yum install -y nodejs10",
                                 "git clone https://github.com/teemal/ec2-express.git",
                                 "cd ec2-express",
                                 "npm i",
