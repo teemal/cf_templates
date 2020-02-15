@@ -31,15 +31,15 @@
                                 "yum -y install awslogs\n ",
                                 "systemctl start awslogsd\n ",
                                 "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash\n",
-                                "export NVM_DIR=\"$([ -z \"${XDG_CONFIG_HOME-}\" ] && printf %s \"${HOME}/.nvm\" || printf %s \"${XDG_CONFIG_HOME}/nvm\")\n",
+                                "export NVM_DIR=\"$HOME/.nvm\"\n",
                                 "[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\n",
-                                "source ~/.bashrc\n"
+                                "source ~/.bashrc\n",
                                 "nvm install 10.18\n",
                                 "nvm use 10.18\n",
                                 "git clone https://github.com/teemal/ec2-express.git\n ",
                                 "cd ec2-express\n" ,
                                 "npm i\n ",
-                                "npm start\n "
+                                "node index.js\n "
                             ]
                         ]
                     }
