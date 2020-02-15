@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: EC2 instance for cloud dev w2020
+Metadata: {}
+Parameters: {}
+Mappings: {}
+Conditions: {}
+Resources:
+  CloudDevEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName: chungusamongus
+      DisableApiTermination: false
+      ImageId: ami-062f7200baf2fa504
+      SecurityGroups:
+        - !Ref MySecurityGroup
+      InstanceType: t2.micro
+      Monitoring: true
+      Tags:
+      - Key: someKey
+        Value: someValue
+      UserData:
+        Fn::Base64: !Sub |
+             #!/bin/bash
+              sudo yum update -y
+              sudo yum install -y git
+              sudo yum install -y awslogs
+              sudo systemctl start awslogsd
+              cd ~
+              touch test.txt
+              chmod 777 test
+              curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.s
+              bash
+              ~/.nvm/nvm.shnvm install 10.18
+              git clone https://github.com/teemal/ec2-express.git
+              cd ec2-express
+              npm i
+              npm start
+  MySecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties: 
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+Outputs: {}

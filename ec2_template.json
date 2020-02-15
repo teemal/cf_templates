@@ -10,7 +10,7 @@
             "Type": "AWS::EC2::Instance",
             "Properties": {
                 "KeyName": "chungusamongus",
-                "DisableApiTermination": true,
+                "DisableApiTermination": false,
                 "ImageId": "ami-062f7200baf2fa504",
                 "InstanceType": "t2.micro",
                 "Monitoring": true,
@@ -25,17 +25,20 @@
                         "Fn::Join": [
                             "",
                             [
-                                "#!/bin/bash -ex",
-                                "sudo yum update -y",
-                                "echo HERE",
-                                "sudo yum install -y git",
-                                "sudo yum install -y awslogs",
-                                "sudo systemctl start awslogsd",
-                                "sudo yum install -y nodejs10",
-                                "git clone https://github.com/teemal/ec2-express.git",
-                                "cd ec2-express",
-                                "npm i",
-                                "npm start"
+                                "#!/bin/bash",
+                                " sudo yum update -y",
+                                " sudo yum install -y git",
+                                " sudo yum install -y awslogs",
+                                " sudo systemctl start awslogsd",
+                                " cd ~",
+                                " touch test.txt",
+                                " chmod 777 test",
+                                " curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash",
+                                " ~/.nvm/nvm.shnvm install 10.18",
+                                " git clone https://github.com/teemal/ec2-express.git",
+                                " cd ec2-express",
+                                " npm i",
+                                " npm start"
                             ]
                         ]
                     }
