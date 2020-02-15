@@ -27,6 +27,7 @@
                             [
                                 "#!/bin/bash -ex",
                                 "sudo yum update -y",
+                                "echo HERE",
                                 "sudo yum install -y git",
                                 "sudo yum install -y awslogs",
                                 "sudo systemctl start awslogsd",
