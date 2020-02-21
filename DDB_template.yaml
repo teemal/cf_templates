@@ -16,7 +16,7 @@ Resources:
                 AttributeName: "s_k"
                 KeyType: "RANGE"
             ProvisionedThroughput: 
-                ReadCapacityUnits: 5
-                WriteCapacityUnits: 5
+                ReadCapacityUnits: 1
+                WriteCapacityUnits: 1
             SSESpecification: 
                 Enabled: false
