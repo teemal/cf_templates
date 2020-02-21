@@ -8,6 +8,19 @@ Resources:
         Properties:
             TableName: "music"
             BillingMode: "PROVISIONED"
+            AttributeDefinitions:
+              -
+                AttributeName: "genre"
+                AttributeType: "S"
+              -
+                AttributeName: "artist"
+                AttributeType: "S"
+              -
+                AttributeName: "album"
+                AttributeType: "S"
+              -
+                AttributeName: "song"
+                AttributeType: "S"
             KeySchema: 
               - 
                 AttributeName: "p_k"
@@ -19,4 +32,4 @@ Resources:
                 ReadCapacityUnits: 1
                 WriteCapacityUnits: 1
             SSESpecification: 
-                Enabled: false
+                SSEEnabled: false
