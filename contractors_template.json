@@ -38,7 +38,17 @@
                 "iam:ListVirtualMFADevices",
                 "cloudformation:ListStacks",
                 "cloudformation:ListStackResources",
-                "cloudformation:GetTemplate"
+                "cloudformation:GetTemplate",
+                "dynamodb:BatchGetItem",
+                "dynamodb:DescribeGlobalTable",
+                "dynamodb:DescribeTable",
+                "dynamodb:DescribeTimeToLive",
+                "dynamodb:GetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:ListGlobalTables",
+                "dynamodb:ListTables",
+                "dynamodb:Query",
+                "dynamodb:Scan"
               ],
               "Resource": "*"
             },

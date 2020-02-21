@@ -71,7 +71,8 @@
                 "AWS": [
                   "arn:aws:iam::921245065062:user/supreme-s3",
                   "arn:aws:iam::921245065062:user/dumb-boi"
-                ]
+                ],
+                "Service": [ "ec2.amazonaws.com" ]
               },
               "Action": [
                 "sts:AssumeRole"

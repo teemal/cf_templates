@@ -3,7 +3,6 @@
     "Description": "EC2 instance for cloud dev w2020",
     "Metadata": {},
     "Parameters": {},
-    "Mappings": {},
     "Conditions": {},
     "Resources": {
         "CloudDevEC2": {
@@ -49,7 +48,7 @@
         "S3InstanceProfile": {
             "Type": "AWS::IAM::InstanceProfile",
             "Properties": {
-              "InstanceProfileName": "S3FullAccess",
+              "InstanceProfileName": "supreme-S3",
               "Path": "/",
               "Roles": ["supreme-S3"]
             }
