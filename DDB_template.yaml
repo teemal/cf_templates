@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "console-recorder"
+Description: ""
+Resources:
+    dynamodb5639c1a:
+        Type: "AWS::DynamoDB::Table"
+        Properties:
+            TableName: "music"
+            BillingMode: "PROVISIONED"
+            KeySchema: 
+              - 
+                AttributeName: "p_k"
+                KeyType: "HASH"
+              - 
+                AttributeName: "s_k"
+                KeyType: "RANGE"
+            ProvisionedThroughput: 
+                ReadCapacityUnits: 5
+                WriteCapacityUnits: 5
+            SSESpecification: 
+                Enabled: false
