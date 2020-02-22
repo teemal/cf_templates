@@ -10,23 +10,17 @@ Resources:
             BillingMode: "PROVISIONED"
             AttributeDefinitions:
               -
-                AttributeName: "genre"
+                AttributeName: "pk"
                 AttributeType: "S"
               -
-                AttributeName: "artist"
-                AttributeType: "S"
-              -
-                AttributeName: "album"
-                AttributeType: "S"
-              -
-                AttributeName: "song"
+                AttributeName: "sk"
                 AttributeType: "S"
             KeySchema: 
               - 
-                AttributeName: "p_k"
+                AttributeName: "pk"
                 KeyType: "HASH"
               - 
-                AttributeName: "s_k"
+                AttributeName: "sk"
                 KeyType: "RANGE"
             ProvisionedThroughput: 
                 ReadCapacityUnits: 1
