@@ -1,0 +1,58 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "EC2 instance for cloud dev w2020",
+    "Metadata": {},
+    "Parameters": {},
+    "Conditions": {},
+    "Resources": {
+        "CloudDevEC2": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "KeyName": "chungusamongus",
+                "DisableApiTermination": false,
+                "ImageId": "ami-062f7200baf2fa504",
+                "InstanceType": "t2.micro",
+                "Monitoring": true,
+                "Tags": [
+                    {
+                        "Key": "someKey",
+                        "Value": "someValue"
+                    }
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "#!/bin/bash\n",
+                                "yum -y update\n ",
+                                "yum -y install git\n ",
+                                "yum -y install awslogs\n ",
+                                "systemctl start awslogsd\n ",
+                                "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash\n",
+                                "export NVM_DIR=\"$HOME/.nvm\"\n",
+                                "[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\n",
+                                "source ~/.bashrc\n",
+                                "nvm install 10.18\n",
+                                "nvm use 10.18\n",
+                                "git clone https://github.com/teemal/ec2-express.git\n ",
+                                "cd ec2-express\n" ,
+                                "npm i\n ",
+                                "node index.js\n "
+                            ]
+                        ]
+                    }
+                }
+            }
+        },
+        "S3InstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+              "InstanceProfileName": "supreme-S3",
+              "Path": "/",
+              "Roles": ["supreme-S3"]
+            }
+          }
+    },
+    "Outputs": {}
+}
